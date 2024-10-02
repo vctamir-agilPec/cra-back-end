@@ -12,4 +12,8 @@ router.post('/auth/register', async (req, res) => {
     await authController.register(req, res);
 });
 
+router.post('/auth/oauth/google', async (req, res) => {
+    await authController.googleOAuth(req, res);
+});
+
 export default router;

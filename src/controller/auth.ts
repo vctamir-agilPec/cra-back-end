@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import prisma from '../database/prisma';
-import { createToken, hashPassword, verifyPassword } from '../functions/auth';
+import { createToken, hashPassword, jwtDecode, verifyPassword } from '../functions/auth';
 import { AuthHandler } from '../Handlers/Auth';
 import { Usuario } from '../model/ususario';
 
@@ -61,8 +61,29 @@ class AuthController {
         }
 
     }
-    async oauth(req: Request, res: Response) {
-
+    async googleOAuth(req: Request, res: Response) {
+        try {
+            const decodedToken = jwtDecode(req.body.credential);
+            if (decodedToken) {
+                const user = await prisma.usuario.findFirst({
+                    where: {
+                        email: decodedToken.email
+                    }
+                })
+                if (user) {
+                    res.status(200).send({
+                        message: 'Usuário logado com sucesso',
+                        nome: user.nome,
+                        email: user.email,
+                        token: createToken({ id: user.id, email: user.email, nome: user.nome })
+                    })
+                } else {
+                    res.status(400).send({ message: 'Usuário não cadastrado' })
+                }
+            }
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
     }
 }
 
