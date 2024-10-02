@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum sexo_enum {
+  masculino
+  feminino
+  outro
+}
+
+enum tipo_pessoa_enum {
+  fisica
+  juridica
+}
+
+enum situacao_enum {
+  vivo
+  morto
+}
+
+model pessoa {
+  id            String   @id @default(uuid())
+  nome          String
+  tipo_pessoa   tipo_pessoa_enum
+  insc_estadual String?
+  razao_social  String?
+  sexo          sexo_enum?
+  data_nasc     BigInt?
+  cpf           String?  @db.VarChar(14)
+  cnpj          String?  @db.VarChar(18)
+  rg            String?  @db.VarChar(18)
+  data_exped    BigInt?
+  orgao_exped   String?
+  cod_prop      String?
+  enderecos     Json
+  contatos      Json
+  programas     Json
+  assinatura    String?
+  observacoes   String?
+  data_replica  BigInt?
+  created_at    BigInt
+  modified_at   BigInt
+  sequencial    BigInt
+}
+
+model usuario {
+  id            String  @id @default(uuid())
+  nome          String
+  email         String
+  senha         String
+  created_at    BigInt
+  modified_at   BigInt
+}

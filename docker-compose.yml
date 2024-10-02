@@ -1,0 +1,14 @@
+services:
+  cra-backend:
+    image: node:latest
+    container_name: "cra-backend"
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npx prisma migrate dev --name init &&  npm run dev"
+    ports:
+      - "4000:4000"
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
