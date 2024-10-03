@@ -7,7 +7,7 @@ services:
       - .:/app
     command: sh -c "npm install && npx prisma migrate dev --name init &&  npm run dev"
     ports:
-      - "4000:4000"
+      - "3000:3000"
     stdin_open: true
     tty: true
     env_file:
