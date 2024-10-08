@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ti-agilPec/server.git"
+    "url": "git+https://github.com/vctamir-agilPec/cra-back-end.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ti-agilPec/server/issues"
+    "url": "https://github.com/vctamir-agilPec/cra-back-end.git/issues"
   },
-  "homepage": "https://github.com/ti-agilPec/server#readme",
+  "homepage": "https://github.com/vctamir-agilPec/cra-back-end.git#readme",
   "description": "",
   "dependencies": {
     "@prisma/client": "^5.20.0",
+    "backend": "file:",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2"
@@ -27,6 +28,7 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.7.4",
+    "faker": "^6.6.6",
     "prisma": "^5.20.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.1"

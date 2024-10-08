@@ -23,7 +23,7 @@ enum situacao_enum {
   morto
 }
 
-model pessoa {
+model associado {
   id            String   @id @default(uuid())
   nome          String
   tipo_pessoa   tipo_pessoa_enum
@@ -39,7 +39,6 @@ model pessoa {
   cod_prop      String?
   enderecos     Json
   contatos      Json
-  programas     Json
   assinatura    String?
   observacoes   String?
   data_replica  BigInt?
@@ -55,4 +54,5 @@ model usuario {
   senha         String
   created_at    BigInt
   modified_at   BigInt
+  sequential    BigInt @default(autoincrement())
 }

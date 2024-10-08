@@ -13,8 +13,8 @@ services:
     env_file:
       - .env
     networks:
-        - cra-network  
+      - cra-network
 
 networks:
-  agilpec-network:
+  cra-network:
     external: true

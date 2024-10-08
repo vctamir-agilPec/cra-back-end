@@ -12,7 +12,7 @@ class HttpServer {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use((req, res, next) => {
-            res.header('Agilpec', 'v1');
+            res.header('cra', 'v1');
             next();
         });
         this.app.use('/api', routes);
