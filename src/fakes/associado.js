@@ -4,7 +4,7 @@ const generateFakeAssociado = () => {
   return {
     id: faker.datatype.uuid(),
     nome: faker.name.fullName(),
-    tipo_pessoa: faker.helpers.arrayElement(["fisica", "juridica"]), // Assuming these are the enum values
+    tipo_pessoa: faker.helpers.arrayElement(["fisica", "juridica"]), // Assuming  these are the enum values
     insc_estadual: faker.random.alphaNumeric(10),
     razao_social: faker.company.name(),
     sexo: faker.helpers.arrayElement(["masculino", "feminino", "outro"]),

@@ -13,4 +13,9 @@ router.get("/", async (req, res) => {
     await associadoController.get(req, res);
 });
 
+router.get("/:id", async (req, res) => {
+    const associadoController = new AssociadoController();
+    await associadoController.getById(req, res);
+});
+
 export default router;
